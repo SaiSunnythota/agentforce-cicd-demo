@@ -1,0 +1,25 @@
+name: Agentforce CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Salesforce CLI
+        uses: salesforcecli/github-action@v2
+
+      - name: Verify Salesforce CLI
+        run: sf --version
+
+      - name: Show Project Files
+        run: ls -R
