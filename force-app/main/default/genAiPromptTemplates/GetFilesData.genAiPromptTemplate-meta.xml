@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <developerName>GetFilesData</developerName>
+    <masterLabel>GetFilesData</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>  Get the account id  from user as input {!$Input:GetAccountId} and  get the all details in the file section points   {!$Apex:AccountPDFSummarizer.Prompt}   
+
+and give me summary of the file .
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>GetAccountId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>GetAccountId</masterLabel>
+            <referenceName>Input:GetAccountId</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>apex://AccountPDFSummarizer</definition>
+            <description>Retrieves plain text from the latest PDF attached to an Account.</description>
+            <label>Get Latest PDF Text</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>GetAccountId</parameterName>
+                <valueExpression>{!$User.Account.Id}</valueExpression>
+            </parameters>
+            <referenceName>Apex:AccountPDFSummarizer</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>Q3s/aw7NfLUH/tMgisVAttZUjeRfDKj7OaXoHwKULPs=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

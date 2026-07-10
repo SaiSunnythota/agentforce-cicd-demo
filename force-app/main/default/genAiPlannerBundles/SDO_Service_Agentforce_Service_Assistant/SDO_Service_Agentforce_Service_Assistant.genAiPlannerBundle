@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>Help your customer service representatives resolve cases faster with an AI-generated list of suggested resolution steps grounded in your organization&apos;s policies and practices.</description>
+    <localActionLinks>
+        <genAiFunctionName>AnswerQuestionsWithKnowledge_16jHo000000L2Ib</genAiFunctionName>
+    </localActionLinks>
+    <localTopicLinks>
+        <genAiPluginName>Billing_16jHo000000L2Ib</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Turbine_and_Solar_Panel_Repair_16jHo000000L2Ib</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>Turbine_and_Solar_Panel_Repair_16jHo000000L2Ib</fullName>
+        <canEscalate>false</canEscalate>
+        <description>This topic covers user queries related to issues with wind turbines and solar panels, such as performance inconsistencies, system malfunctions, and repair diagnostics.</description>
+        <developerName>Turbine_and_Solar_Panel_Repair_16jHo000000L2Ib</developerName>
+        <genAiPluginInstructions>
+            <description>Always offer the customer an upgraded support plan to ensure proactive maintenance and faster issue resolution in the future.</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Always send a follow-up email to the customer summarizing the status and resolution steps taken, whether software updates or repair arrangements.</description>
+            <developerName>instruction_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 2</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Before proceeding further, contact the Release Deployment team to verify if there are any known software or firmware issues affecting the customer&apos;s system version. If a software issue is identified, apologize to the customer and inform them that a patch with the necessary fix will be deployed within the next few days.</description>
+            <developerName>instruction_3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 3</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>First, ensure the customer has followed all basic troubleshooting steps, such as rebooting the system, checking connections, and inspecting system settings, before moving to service escalation.</description>
+            <developerName>instruction_4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 4</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Keep detailed notes in the case comments, including the investigation steps, findings, and resolutions. Use Einstein Draft a Case Summary to efficiently summarize key points for the case closure.</description>
+            <developerName>instruction_5</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 5</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the customer has not provided the firmware version of their wind turbine or solar panel system, always ask them to check and provide this information. Knowing the version helps identify compatibility or update-related issues.</description>
+            <developerName>instruction_6</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 6</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the customer agrees to proceed with repair, schedule an on-site technician visit for diagnostics and repairs.</description>
+            <developerName>instruction_7</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 7</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the problem is determined to be hardware-related, check the product&apos;s warranty status. If the product is out of warranty and lacks a support plan, inform the customer of the flat-rate repair or replacement cost based on the affected components.</description>
+            <developerName>instruction_8</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 8</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If firmware information is unavailable, ask the customer to inspect for visible physical damage, such as cracks in solar panels, corrosion, loose connections, or wear on turbine components. Physical damage often points to hardware-related issues.</description>
+            <developerName>instruction_9</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 9</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>Turbine_and_Solar_Panel_Repair</localDeveloperName>
+        <masterLabel>Turbine and Solar Panel Repair</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your role is to address all user questions about troubleshooting, diagnosing, and resolving issues or arranging repairs for wind turbine and solar panel products.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Billing_16jHo000000L2Ib</fullName>
+        <canEscalate>false</canEscalate>
+        <description>This topic encompasses everything related to the handling of payments. It includes addressing billing inquiries and resolving any discrepancies in invoicing and payments.</description>
+        <developerName>Billing_16jHo000000L2Ib</developerName>
+        <genAiPluginInstructions>
+            <description>If the investigation confirms a billing error, the agent should take appropriate corrective actions. This may involve issuing a credit, adjusting the bill, or reissuing a corrected invoice. On the other hand, if the bill is accurate, the agent should clearly explain the charges to the customer and provide any necessary documentation to support the explanation.</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>When a billing discrepancy arises, the first step is to gather key information, such as the invoice number, billing period, the amount in question, and any supporting documentation the customer can provide.</description>
+            <developerName>instruction_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 2</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>The agent should review customer&apos;s billing history to locate the relevant bill or transaction. The agent should carefully cross-check the bill against service agreements, promotions, or payment plans to identify potential errors such as double charges, incorrect rates, or missing payments. Additionally, the agent should confirm whether any prior adjustments or corrections have already been made.</description>
+            <developerName>instruction_3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 3</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Once the issue is resolved, it’s essential to document the interaction, including the nature of the issue, findings, and the steps taken to resolve it. Finally, the agent should follow up with the customer to confirm their satisfaction, providing a summary of the resolution and any adjustments made, either through email or a formal notification.</description>
+            <developerName>instruction_4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 4</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>Billing</localDeveloperName>
+        <masterLabel>Billing</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to help with all aspects of payment processing and billing, including handling billing queries, resolving invoice discrepancies, and processing payments.</scope>
+    </localTopics>
+    <masterLabel>Agentforce Service Assistant</masterLabel>
+    <plannerActions>
+        <fullName>AnswerQuestionsWithKnowledge_16jHo000000L2Ib</fullName>
+        <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+        <developerName>AnswerQuestionsWithKnowledge_16jHo000000L2Ib</developerName>
+        <invocationTarget>streamKnowledgeSearch</invocationTarget>
+        <invocationTargetType>standardInvocableAction</invocationTargetType>
+        <isConfirmationRequired>false</isConfirmationRequired>
+        <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+        <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+        <masterLabel>Answer Questions with Knowledge</masterLabel>
+        <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+        <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+    </plannerActions>
+    <plannerType>AiCopilot__ReAct</plannerType>
+</GenAiPlannerBundle>

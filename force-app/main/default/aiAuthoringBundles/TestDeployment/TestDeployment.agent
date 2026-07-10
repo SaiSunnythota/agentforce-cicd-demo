@@ -73,6 +73,7 @@ start_agent agent_router:
             go_to_off_topic: @utils.transition to @subagent.off_topic
             go_to_ambiguous_question: @utils.transition to @subagent.ambiguous_question
             go_to_GeneralCRM: @utils.transition to @subagent.GeneralCRM
+            go_to_CaseManagement: @utils.transition to @subagent.CaseManagement
 
 subagent off_topic:
     label: "Off Topic"
@@ -184,6 +185,7 @@ subagent GeneralCRM:
 
 
 
+
     actions:
         IdentifyObjectByName:
             description: |
@@ -193,7 +195,7 @@ subagent GeneralCRM:
             include_in_progress_indicator: True
             source: "EmployeeCopilot__IdentifyObjectByName"
             target: "standardInvocableAction://identifyObject"
-                                
+                                        
             inputs:
                 "objectName": string
                     description: |
@@ -201,7 +203,7 @@ subagent GeneralCRM:
                     label: "objectName"
                     is_required: True
                     is_user_input: False
-                                
+                                        
             outputs:
                 "objectApiNames": list[object]
                     description: |
@@ -219,7 +221,7 @@ subagent GeneralCRM:
             include_in_progress_indicator: True
             source: "EmployeeCopilot__IdentifyRecordByName"
             target: "standardInvocableAction://identifyRecordByName"
-                                
+                                        
             inputs:
                 "recordName": string
                     description: |
@@ -233,7 +235,7 @@ subagent GeneralCRM:
                     label: "objectApiName"
                     is_required: False
                     is_user_input: False
-                                
+                                        
             outputs:
                 "searchResults": list[object]
                     description: |
@@ -251,7 +253,7 @@ subagent GeneralCRM:
             include_in_progress_indicator: True
             source: "EmployeeCopilot__QueryRecords"
             target: "standardInvocableAction://queryRecords"
-                                
+                                        
             inputs:
                 "query": string
                     description: |
@@ -265,7 +267,7 @@ subagent GeneralCRM:
                     label: "customizationInstructions"
                     is_required: False
                     is_user_input: False
-                                
+                                        
             outputs:
                 "result": list[object]
                     description: |
@@ -283,7 +285,7 @@ subagent GeneralCRM:
             include_in_progress_indicator: True
             source: "EmployeeCopilot__QueryRecordsWithAggregate"
             target: "standardInvocableAction://queryRecordsWithAggregate"
-                                
+                                        
             inputs:
                 "query": string
                     description: |
@@ -297,7 +299,7 @@ subagent GeneralCRM:
                     label: "customizationInstructions"
                     is_required: False
                     is_user_input: False
-                                
+                                        
             outputs:
                 "result": object
                     description: |
@@ -316,7 +318,7 @@ subagent GeneralCRM:
             progress_indicator_message: "Retrieving activities"
             source: "EmployeeCopilot__GetActivitiesTimeline"
             target: "standardInvocableAction://getActivitiesTimeline"
-                                
+                                        
             inputs:
                 "recordId": object
                     description: |
@@ -344,7 +346,7 @@ subagent GeneralCRM:
                     label: "To Date Time"
                     is_required: False
                     is_user_input: False
-                                
+                                        
             outputs:
                 "activitiesList": string
                     description: |
@@ -362,7 +364,7 @@ subagent GeneralCRM:
             progress_indicator_message: "Getting activity details"
             source: "EmployeeCopilot__GetActivityDetails"
             target: "standardInvocableAction://getActivityDetails"
-                                
+                                        
             inputs:
                 "activityId": object
                     description: |
@@ -371,7 +373,7 @@ subagent GeneralCRM:
                     is_required: True
                     is_user_input: False
                     complex_data_type_name: "lightning__recordIdType"
-                                
+                                        
             outputs:
                 "activityDetails": string
                     description: |
@@ -389,7 +391,7 @@ subagent GeneralCRM:
             progress_indicator_message: "Getting details"
             source: "EmployeeCopilot__GetRecordDetails"
             target: "standardInvocableAction://getDataForGrounding"
-                                
+                                        
             inputs:
                 "recordId": object
                     description: |
@@ -398,7 +400,7 @@ subagent GeneralCRM:
                     is_required: True
                     is_user_input: False
                     complex_data_type_name: "lightning__recordIdType"
-                                
+                                        
             outputs:
                 "snapshot": string
                     description: |
@@ -416,7 +418,7 @@ subagent GeneralCRM:
             progress_indicator_message: "Crafting your email"
             source: "EmployeeCopilot__DraftOrReviseEmail"
             target: "standardInvocableAction://getDraftOrReviseEmailPrompt"
-                                
+                                        
             inputs:
                 "recordId": object
                     description: |
@@ -451,7 +453,7 @@ subagent GeneralCRM:
                     is_required: False
                     is_user_input: False
                     complex_data_type_name: "lightning__emailType"
-                                
+                                        
             outputs:
                 "generatedEmail": object
                     description: |
@@ -470,7 +472,7 @@ subagent GeneralCRM:
             progress_indicator_message: "Making updates"
             source: "EmployeeCopilot__UpdateRecordFields"
             target: "standardInvocableAction://einsteinCopilotUpdateRecord"
-                                
+                                        
             inputs:
                 "recordDetailInput": object
                     description: |
@@ -479,7 +481,7 @@ subagent GeneralCRM:
                     is_required: True
                     is_user_input: False
                     complex_data_type_name: "lightning__recordInfoType"
-                                
+                                        
             outputs:
                 "recordDetailOutput": object
                     description: |
@@ -498,7 +500,7 @@ subagent GeneralCRM:
             progress_indicator_message: "Preparing your changes"
             source: "EmployeeCopilot__ExtractFieldsAndValuesFromUserInput"
             target: "standardInvocableAction://getRecordFieldsAndValues"
-                                
+                                        
             inputs:
                 "recordId": object
                     description: |
@@ -519,7 +521,7 @@ subagent GeneralCRM:
                     label: "User Input"
                     is_required: True
                     is_user_input: True
-                                
+                                        
             outputs:
                 "recordDetails": object
                     description: |
@@ -538,7 +540,7 @@ subagent GeneralCRM:
             progress_indicator_message: "Getting answers"
             source: "EmployeeCopilot__AnswerQuestionsWithKnowledge"
             target: "standardInvocableAction://streamKnowledgeSearch"
-                                
+                                        
             inputs:
                 "query": string
                     description: |
@@ -564,7 +566,232 @@ subagent GeneralCRM:
                     label: "Citations Enabled"
                     is_required: False
                     is_user_input: True
-                                
+                                        
+            outputs:
+                "knowledgeSummary": object
+                    description: |
+                      A string formatted as rich text that includes a summary of the information retrieved from the knowledge articles and citations to those articles.
+                    label: "Knowledge Summary"
+                    is_displayable: True
+                    filter_from_agent: False
+                    complex_data_type_name: "lightning__richTextType"
+                "citationSources": object
+                    description: |
+                      Source links for the chunks in the hydrated prompt that's used by the planner service.
+                    label: "Citation Sources"
+                    is_displayable: False
+                    filter_from_agent: False
+                    complex_data_type_name: "@apexClassType/AiCopilot__GenAiCitationInput"
+
+subagent CaseManagement:
+    label: "Case Management"
+    description: "Handles customer inquiries and actions related to support cases, including providing case information, updating existing cases, and creating new cases."
+
+    reasoning:
+        instructions: ->
+            | Always format any dates in a human readable format
+              Do not ever show the Case Id to a customer
+              If the customer is not known, always ask for their email address and get their Contact record before running any other actions.
+              When adding a comment to a case, first retrieve the case details using the case number, ask the user for the exact comment they would like to add and only then add it.
+              When sharing case details with the customer, show the following properties as an itemized list :Case number, Subject, Description, and Status. The Subject must exactly match the value stored in the case record. Do not rephrase or regenerate it.
+              A case is a record used to help track a customer's issues. Customers may have questions about the status of the issue or want to provide more information for the case. Cases are usually associated with a contact. Comments are added to provide new information.
+              Use the Answer Questions with Knowledge action to answer troubleshooting questions.
+              Acknowledge and validate user concerns with empathy and professionalism.
+              When a customer asks you to create a case, please summarize the current conversation. The subject should be less than 7 words and function as a high level overview of what the customer inquired about. The description should be no more than 3 sentences and should provide more depth about what exactly the customer asked, important data, and any other relevant information to help a customer service representative understand the context of this conversation.
+              When sharing the Description field from a case record with the customer, summarize it into a condensed, conversational version that is no more than 3 sentences. The summary must preserve all important factual content and intent from the original case description, and must not introduce any new or misleading information.
+              
+
+        actions:
+            CreateCaseEnhancedData: @actions.CreateCaseEnhancedData
+                with verifiedCustomerID=...
+                with messagingSessionID=...
+                with caseSubject=...
+                with caseDescription=...
+            GetCasesForVerifiedContact: @actions.GetCasesForVerifiedContact
+                with verifiedContactID=...
+            GetCaseByVerifiedCaseNumber: @actions.GetCaseByVerifiedCaseNumber
+                with verifiedContactID=...
+                with caseNumber=...
+            AddCaseComment: @actions.AddCaseComment
+                with caseRecord=...
+                with caseComment=...
+            AnswerQuestionsWithKnowledge: @actions.AnswerQuestionsWithKnowledge
+                with query=...
+                with citationsUrl=...
+                with ragFeatureConfigId=...
+                with citationsEnabled=...
+
+
+
+
+
+    actions:
+        CreateCaseEnhancedData:
+            description: |
+                Create a case for the customer that's transferred from the AI agent to a service rep. The case includes all information gathered from the customer, a summary of the progress made by the AI agent, a link to the conversation, and any attachments.
+            label: "Create Case with Enhanced Data"
+            require_user_confirmation: True
+            include_in_progress_indicator: True
+            source: "SvcCopilotTmpl__CreateCaseEnhancedData"
+            target: "flow://SvcCopilotTmpl__CreateCaseEnhancedData"
+                        
+            inputs:
+                "verifiedCustomerID": string
+                    description: |
+                      Stores the contact ID associated with the newly created Case.
+                    label: "Verified Customer ID"
+                    is_required: True
+                    is_user_input: False
+                "messagingSessionID": string
+                    description: |
+                      Stores session id from the chat conversation
+                    label: "Messaging Session ID"
+                    is_required: False
+                    is_user_input: False
+                "caseSubject": string
+                    description: |
+                      Stores the subject of the case to create.
+                    label: "Case Subject"
+                    is_required: False
+                    is_user_input: True
+                "caseDescription": string
+                    description: |
+                      Stores the details of the user issue to be used for the case.
+                    label: "Case Description"
+                    is_required: False
+                    is_user_input: True
+                        
+            outputs:
+                "caseRecord": object
+                    description: |
+                      Stores the case record created by the customer.
+                    label: "Case record"
+                    is_displayable: True
+                    filter_from_agent: False
+                    complex_data_type_name: "lightning__recordInfoType"
+        GetCasesForVerifiedContact:
+            description: |
+                Returns a list of cases related to a given Contact ID.
+            label: "Get Cases For Verified Contact"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            source: "SvcCopilotTmpl__GetCasesForVerifiedContact"
+            target: "flow://SvcCopilotTmpl__GetCasesVrfyCtct"
+                        
+            inputs:
+                "verifiedContactID": string
+                    description: |
+                      Stores the contact record ID to be updated.
+                    label: "Verified Contact record ID"
+                    is_required: True
+                    is_user_input: False
+                        
+            outputs:
+                "caseList": list[object]
+                    description: |
+                      Stores the ID, Subject, Description, Status, CreatedDate, CaseNumber, LastModifiedDate, and ClosedDate for case records related to a specified contact.
+                    label: "Case List"
+                    is_displayable: True
+                    filter_from_agent: False
+                    complex_data_type_name: "lightning__recordInfoType"
+        GetCaseByVerifiedCaseNumber:
+            description: |
+                Returns a case associated with a given contact ID and case number.
+            label: "Get Case By Verified Case Number"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            source: "SvcCopilotTmpl__GetCaseByVerifiedCaseNumber"
+            target: "flow://SvcCopilotTmpl__GetCaseByVrfyCaseNbr"
+                        
+            inputs:
+                "verifiedContactID": string
+                    description: |
+                      Stores the contact record ID to be updated.
+                    label: "Verified Contact record ID"
+                    is_required: True
+                    is_user_input: False
+                "caseNumber": string
+                    description: |
+                      Stores the case number provided by the customer.
+                    label: "Case Number"
+                    is_required: True
+                    is_user_input: False
+                        
+            outputs:
+                "caseRecord": object
+                    description: |
+                      Stores the case record based on the contact record and case number.
+                    label: "Case record"
+                    is_displayable: True
+                    filter_from_agent: False
+                    complex_data_type_name: "lightning__recordInfoType"
+        AddCaseComment:
+            description: |
+                Let a customer add a comment to an existing case.
+            label: "Add Case Comment"
+            require_user_confirmation: True
+            include_in_progress_indicator: True
+            source: "SvcCopilotTmpl__AddCaseComment"
+            target: "flow://SvcCopilotTmpl__AddCaseComment"
+                        
+            inputs:
+                "caseRecord": object
+                    description: |
+                      Stores the case record to be updated with a comment.
+                    label: "Case record"
+                    is_required: True
+                    is_user_input: False
+                    complex_data_type_name: "lightning__recordInfoType"
+                "caseComment": string
+                    description: |
+                      Stores the text of the comment to add to the case.
+                    label: "Case comment"
+                    is_required: True
+                    is_user_input: True
+                        
+            outputs:
+                "outcomeMessage": string
+                    description: |
+                      Stores the message that lets the customer know whether the comment was successfully added to the case.
+                    label: "Outcome message"
+                    is_displayable: True
+                    filter_from_agent: False
+        AnswerQuestionsWithKnowledge:
+            description: |
+                Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”
+            label: "Answer Questions with Knowledge"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Getting answers"
+            source: "EmployeeCopilot__AnswerQuestionsWithKnowledge"
+            target: "standardInvocableAction://streamKnowledgeSearch"
+                        
+            inputs:
+                "query": string
+                    description: |
+                      Required. A string created by generative AI to be used in the knowledge article search.
+                    label: "Query"
+                    is_required: True
+                    is_user_input: True
+                "citationsUrl": string=@knowledge.citations_url
+                    description: |
+                      The URL to use for citations for custom Agents.
+                    label: "Citations Url"
+                    is_required: False
+                    is_user_input: True
+                "ragFeatureConfigId": string=@knowledge.rag_feature_config_id
+                    description: |
+                      The RAG Feature ID to use for grounding this copilot action invocation.
+                    label: "RAG Feature Configuration Id"
+                    is_required: False
+                    is_user_input: True
+                "citationsEnabled": boolean=@knowledge.citations_enabled
+                    description: |
+                      Whether or not citations are enabled.
+                    label: "Citations Enabled"
+                    is_required: False
+                    is_user_input: True
+                        
             outputs:
                 "knowledgeSummary": object
                     description: |

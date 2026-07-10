@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Returns files linked to an Account</description>
+    <developerName>Get_Account_Files</developerName>
+    <invocationTarget>GetAccountFiles</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <localDeveloperName>Get_Account_Files</localDeveloperName>
+    <masterLabel>Get Account Files</masterLabel>
+    <progressIndicatorMessage>Loading Files action ....</progressIndicatorMessage>
+</GenAiFunction>

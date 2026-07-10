@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Card_Icon_Value</name>
+        <label>Assign Card Icon Value</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Card_Icon_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>CardIconValues</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <environments>Default</environments>
+    <formulas>
+        <name>CardIconValues</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.Response_Subtype__c} , 
+&apos;Conversation Catch Up&apos;,&apos;standard:messaging_conversation&apos;,
+&apos;Service Plan Summary&apos;,&apos;standard:operation_plan&apos;,
+&apos;Work Summary&apos;,&apos;standard:case&apos;,
+&apos;Service Replies&apos;,&apos;standard:einstein_replies&apos;,
+&apos;Knowledge&apos;,&apos;standard:knowledge&apos;, &apos;&apos;)</expression>
+    </formulas>
+    <interviewLabel>Auto-populate {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Service Assistant Demo Comp - Auto-populate Card Icon</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_Card_Icon_Value</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Response_Subtype__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>SDO_Service_Assistant_Response__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
