@@ -10,32 +10,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
 
-      # Install Salesforce CLI
       - name: Install Salesforce CLI
         run: |
           npm install -g @salesforce/cli@latest
 
-      # Verify CLI installation
       - name: Verify Salesforce CLI
         run: |
           sf version
 
-      # Create JWT key file
       - name: Create JWT Key File
+        shell: bash
         run: |
-          echo "${{ secrets.SF_JWT_KEY }}" > server.key
+          cat > server.key << 'EOF'
+          ${{ secrets.SF_JWT_KEY }}
+          EOF
 
-      # Authenticate to Salesforce Production
+          chmod 600 server.key
+
+          echo "===== JWT KEY CHECK ====="
+          echo "First line:"
+          head -1 server.key
+          echo "Last line:"
+          tail -1 server.key
+          echo "File size:"
+          wc -c server.key
+
       - name: Authenticate Production Org
         run: |
           sf org login jwt \
@@ -45,12 +52,10 @@ jobs:
             --instance-url "${{ secrets.SF_INSTANCE_URL }}" \
             --alias Production
 
-      # Verify authentication
       - name: Verify Authentication
         run: |
           sf org list
 
-      # Validate deployment
       - name: Validate Deployment
         run: |
           sf project deploy start \
@@ -58,7 +63,6 @@ jobs:
             --target-org Production \
             --dry-run
 
-      # Deploy to Production
       - name: Deploy Metadata to Production
         run: |
           sf project deploy start \
