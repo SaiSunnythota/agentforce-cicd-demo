@@ -25,24 +25,24 @@ jobs:
         run: |
           npm install -g @salesforce/cli@latest
 
-      # Verify CLI
+      # Verify CLI installation
       - name: Verify Salesforce CLI
         run: |
           sf version
 
-      # Create JWT key from GitHub Secret
+      # Create JWT key file
       - name: Create JWT Key File
         run: |
           echo "${{ secrets.SF_JWT_KEY }}" > server.key
 
-      # Authenticate to Production Org
+      # Authenticate to Salesforce Production
       - name: Authenticate Production Org
         run: |
           sf org login jwt \
-            --client-id "${{ secrets.SF_CONSUMER_KEY }}" \
+            --client-id "${{ secrets.SF_CLIENT_ID }}" \
             --jwt-key-file server.key \
             --username "${{ secrets.SF_USERNAME }}" \
-            --instance-url https://login.salesforce.com \
+            --instance-url "${{ secrets.SF_INSTANCE_URL }}" \
             --alias Production
 
       # Verify authentication
