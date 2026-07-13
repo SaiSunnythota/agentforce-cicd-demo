@@ -1,0 +1,19 @@
+name: TestingVscode
+subjectType: AGENT
+subjectName: TestDeployment
+testCases:
+  - utterance: summarise the acccount ACME
+    expectedTopic: GeneralCRM_16jbb000000qHmL
+    expectedActions:
+      - GetRecordDetails_179bb000000EWOG
+      - QueryRecordsWithAggregate_179bb000000EWOG
+      - IdentifyRecordByName_179bb000000EWOG
+      - QueryRecords_179bb000000EWOG
+    expectedOutcome: details of the accounts
+    customEvaluations: []
+    conversationHistory: []
+    metrics:
+      - completeness
+      - coherence
+      - conciseness
+      - output_latency_milliseconds
