@@ -54,11 +54,11 @@
     </conversationSystemDialogs>
     <conversationVariables>
         <dataType>Text</dataType>
-        <description>The Salesforce ID of the current record</description>
-        <developerName>currentRecordId</developerName>
+        <description>The agent instructions</description>
+        <developerName>AgentScriptInternal_agent_instructions</developerName>
         <includeInPrompt>false</includeInPrompt>
-        <label>Current Record Id</label>
-        <visibility>External</visibility>
+        <label>Agent Instructions</label>
+        <visibility>Internal</visibility>
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
@@ -70,10 +70,10 @@
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
-        <description>Page type (record, list, home)</description>
-        <developerName>currentPageType</developerName>
+        <description>Salesforce Application Name</description>
+        <developerName>currentAppName</developerName>
         <includeInPrompt>false</includeInPrompt>
-        <label>Current Page Type</label>
+        <label>Current App Name</label>
         <visibility>External</visibility>
     </conversationVariables>
     <conversationVariables>
@@ -86,27 +86,27 @@
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
+        <description>Page type (record, list, home)</description>
+        <developerName>currentPageType</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Current Page Type</label>
+        <visibility>External</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>The Salesforce ID of the current record</description>
+        <developerName>currentRecordId</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Current Record Id</label>
+        <visibility>External</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
         <description>This variable may also be referred to as VerifiedCustomerId</description>
         <developerName>VerifiedCustomerId</developerName>
         <includeInPrompt>false</includeInPrompt>
         <label>Verified Customer Id</label>
         <visibility>Internal</visibility>
-    </conversationVariables>
-    <conversationVariables>
-        <dataType>Text</dataType>
-        <description>The agent instructions</description>
-        <developerName>AgentScriptInternal_agent_instructions</developerName>
-        <includeInPrompt>false</includeInPrompt>
-        <label>Agent Instructions</label>
-        <visibility>Internal</visibility>
-    </conversationVariables>
-    <conversationVariables>
-        <dataType>Text</dataType>
-        <description>Salesforce Application Name</description>
-        <developerName>currentAppName</developerName>
-        <includeInPrompt>false</includeInPrompt>
-        <label>Current App Name</label>
-        <visibility>External</visibility>
     </conversationVariables>
     <copilotPrimaryLanguage>en_US</copilotPrimaryLanguage>
     <copilotSecondaryLanguages>en_GB</copilotSecondaryLanguages>
